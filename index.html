@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loop and Iteration Conditions</title>
+  <style>
+    body {
+      background-color: #000000;
+      color: #FFFFFF;
+      font-family: 'Press Start 2P', Consolas, monospace; /* Use Press Start 2P or Consolas as fallback */
+      font-weight: normal;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      background-color: #000000;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h3 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+
+    button {
+      background-color: #000000;
+      color: #FFFFFF;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 16px;
+      font-family: 'Press Start 2P', Consolas, monospace; /* Use Press Start 2P or Consolas as fallback */
+      font-weight: normal;
+      border: none; /* Remove border */
+      cursor: pointer;
+      position: relative; /* Ensure relative positioning for pseudo-element */
+      overflow: hidden; /* Hide overflow for pseudo-element */
+    }
+
+    button span {
+      position: relative; /* Ensure relative positioning for heart icon */
+      z-index: 1; /* Ensure text is above heart icon */
+    }
+
+    button::after {
+      content: '♥'; /* Heart icon */
+      font-family: 'Arial Unicode MS', sans-serif; /* Use a system font with heart symbol */
+      font-size: 24px;
+      position: absolute;
+      top: 50%;
+      right: 10px; /* Adjust position as needed */
+      color: #ff4d4d; /* Red color for heart */
+      transform: translateY(-50%);
+      opacity: 0; /* Initially hidden */
+      transition: opacity 0.3s ease-in-out; /* Fade animation */
+    }
+
+    button:hover::after {
+      opacity: 1; /* Show heart icon on hover */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      button {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+
+      .container {
+        padding: 15px;
+      }
+    }
+
+    @font-face {
+      font-family: 'Press Start 2P';
+      src: url('https://fonts.gstatic.com/s/pressstart2p/v8/e3t4euO8EMCYYnI9p0kkKCENTvIf-8HUdYQ-9VewZxD5wDbwDN4tUw.woff2') format('woff2');
+    }
+  </style>
+  <script>
+    function checkAge() {
+      var age;
+      while (true) {
+        age = prompt("Enter your age (a positive integer):");
+        if (age !== null && age.trim() !== "" && !isNaN(age) && Number.isInteger(Number(age)) && Number(age) > 0) {
+          age = parseInt(age);
+          break;
+        } else {
+          alert("Please enter a valid positive integer greater than zero.");
+        }
+      }
+      if (age >= 25) {
+        alert("You are 25 years old and above.");
+      } else {
+        alert("You are under 25 years old.");
+      }
+    }
+
+    function checkNumber() {
+      var number;
+      while (true) {
+        number = prompt("Please enter a number less than 100 (an integer):");
+        if (number !== null && number.trim() !== "" && !isNaN(number) && Number.isInteger(Number(number))) {
+          number = parseInt(number);
+          break;
+        } else {
+          alert("Please enter a valid integer.");
+        }
+      }
+      if (number < 100) {
+        alert("You entered a number less than 100.");
+      } else {
+        alert("The number you entered is 100 or greater.");
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <div class="container">
+    <h3>Loop and Iteration Conditions</h3>
+    <button onclick="checkAge()"><span>Check Age</span></button>
+    <button onclick="checkNumber()"><span>Check Number</span></button>
+  </div>
+
+</body>
+</html>
